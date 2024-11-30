@@ -1,18 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using RecipeSharingAPI.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RecipeSharingAPI.Repositories.Interfaces
 {
-    public class IRecipeRepository
+    public interface IRecipeRepository
     {
         Task<IEnumerable<Recipe>> GetAllRecipesAsync();
         Task<Recipe?> GetRecipeByIdAsync(int id);
         Task AddRecipeAsync(Recipe recipe);
-        Task UpdateRecipeAsync(Recipe recipe);
-        Task DeleteRecipeAsync (int id);
-
+        Task<Recipe?> UpdateRecipeAsync(Recipe recipe);
+        Task DeleteRecipeAsync(int id);
     }
 }

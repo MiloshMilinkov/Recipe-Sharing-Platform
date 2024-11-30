@@ -12,7 +12,7 @@ namespace RecipeSharingAPI.Models
         public string? Description { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public ICollection<RecipeIngredient>? RecipeIngredients { get; set;}
+        public ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
     }
 
 }

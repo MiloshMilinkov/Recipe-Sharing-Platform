@@ -1,16 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using RecipeSharingAPI.Data;
+using RecipeSharingAPI.Repositories.Interfaces;
+using RecipeSharingAPI.Repositories.Repos;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<RecipeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 
 var app = builder.Build();
 
